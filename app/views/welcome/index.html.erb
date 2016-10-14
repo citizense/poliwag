@@ -1,8 +1,13 @@
 <p>HELLO</p>
 <h1>List of Local Represenatives</h1>
-	<ul>From Colorado</ul>
+	<ul>From Colorado </ul>
 	<% @local_reps["results"].to_a.each do |lr| %>
 		<li><%= lr.first_name + " " + lr.last_name %></li>
+<% end %>
+
+<%= form_tag(@addresses_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
 <% end %>
 
 <!-- {"results":
@@ -37,4 +42,4 @@
 	"title":"Sen",
 	"twitter_id":"SenCoryGardner",
 	"votesmart_id":30004,
-	"website":"http://www.gardner.senate.gov","youtube_id":null}]} -->
+	"website":"http://www.gardner.senate.gov","youtube_id":null}]}

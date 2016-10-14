@@ -1,5 +1,6 @@
-<%= form_tag("/index", method: "get") do %>
-  <%= label_tag(:zipcode, "Search for:") %>
-  <%= text_field_tag(:zipcode) %>
-  <%= submit_tag("Search") %>
+
+<% if @addresses.present? %>
+  <%= render @addresses %>
+<% else %>
+  <p>There are no addresses containing the term(s) <%= params[:search] %>.</p>
 <% end %>

@@ -1,0 +1,6 @@
+<h1>StaticPages#index</h1>
+<%= form_tag 'sites/show', method: :get do %>
+    <%= label_tag :state, 'Search legislator' %>
+    <%= text_field_tag :state %>
+    <%= submit_tag 'Search' %>
+<% end %>

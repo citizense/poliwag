@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'json'
 gem 'geocoder'
 gem 'congress'
+gem 'openstates'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
