@@ -13,13 +13,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'httparty'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use rack-cors for AJAX requests"
+gem 'rack-cors', :require => 'rack/cors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'responders', '~> 2.0' 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -34,9 +38,22 @@ gem 'json'
 gem 'geocoder'
 gem 'congress'
 gem 'openstates'
+gem 'nokogiri'
+gem "d3-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'holder_rails'
+gem 'nested_scaffold'
+gem "font-awesome-rails"
+# Use SCSS for stylesheets
+gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'traceroute'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+gem 'compass-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
