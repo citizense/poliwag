@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  resources :cors
+  root 'sites#index', :constraints => { :method => 'GET' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+
+  resources 'sites'
+  get 'sites/index' => 'sites#search', :as => 'search'
+  get 'sites/:q' => 'sites#view', :as => 'view'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
