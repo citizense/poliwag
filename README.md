@@ -10,5 +10,5 @@ Citizense's first application, Themis, is a bill tracker for upcoming and curren
 # Contributing
   
 # Wiki 
-  ## How to Contribute
+##  How to Contribute
 
