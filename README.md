@@ -15,12 +15,12 @@ Special thanks to GovTrack for providing resources for open data usage in congre
   
 # Tech Stack 
 
-- Ruby on Rails
-- Bootstrap 
-- Angular
-- SASS
-- MongoDB
-- GovTrack
-- Legiscan
+- [Ruby on Rails]()
+- [Bootstrap]()
+- [Angular]()
+- [SASS]()
+- [MongoDB]()
+- [GovTrack]()
+- [Legiscan]()
 
 
