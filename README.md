@@ -9,6 +9,8 @@ Special thanks to GovTrack for providing resources for open data usage in congre
 
 # Installation 
 
+This project requires frameworks and database dependencies. Please checkout the Stack section to make sure you have them in your local environment. 
+
 # Contributing
 
   The author will be using Trello and Slack for project management in daily tasks and responsibilities. Channels and sites can only be viewed by those invited to the project.
