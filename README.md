@@ -30,4 +30,6 @@ This project requires frameworks and database dependencies. Please checkout the 
 - [GovTrack](https://www.govtrack.us/)
 - [Legiscan](https://legiscan.com/legiscan)
 
+## Schema
 
+(schema.png)
