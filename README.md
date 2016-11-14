@@ -5,6 +5,10 @@ Citizense's first application, Themis, is a bill tracker for upcoming and curren
   - In-depth analysis providing summaries and for/against arguments 
   - More to come... 
   
-  # Wiki 
+# Installation 
+
+# Contributing
+  
+# Wiki 
   ## How to Contribute
 
