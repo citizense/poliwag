@@ -32,4 +32,4 @@ This project requires frameworks and database dependencies. Please checkout the 
 
 ## Schema
 
-(schema.png)
+[Schema](schema.png)
