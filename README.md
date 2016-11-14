@@ -13,6 +13,14 @@ Special thanks to GovTrack for providing resources for open data usage in congre
 
   The author will be using Trello and Slack for project management in daily tasks and responsibilities. Channels and sites can only be viewed by those invited to the project.
   
-# Wiki 
-##  How to Contribute
+# Tech Stack 
+
+- Ruby on Rails
+- Bootstrap 
+- Angular
+- SASS
+- MongoDB
+- GovTrack
+- Legiscan
+
 
