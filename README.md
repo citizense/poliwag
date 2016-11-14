@@ -24,6 +24,7 @@ This project requires frameworks and database dependencies. Please checkout the 
 - [SASS](http://sass-lang.com/)
 
 ## Databases
+- [SQLite3](https://sqlite.org/)
 - [MongoDB](https://docs.mongodb.com/)
 
 ## APIs 
