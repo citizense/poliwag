@@ -15,16 +15,16 @@ Special thanks to GovTrack for providing resources for open data usage in congre
   
 # Stack
 
-# Frameworks
+## Frameworks
 - [Ruby on Rails](http://rubyonrails.org/)
 - [Bootstrap](http://getbootstrap.com/)
 - [Angular](https://angularjs.org/)
 - [SASS](http://sass-lang.com/)
 
-# Databases
+## Databases
 - [MongoDB](https://docs.mongodb.com/)
 
-# APIs 
+## APIs 
 - [GovTrack](https://www.govtrack.us/)
 - [Legiscan](https://legiscan.com/legiscan)
 
