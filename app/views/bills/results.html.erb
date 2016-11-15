@@ -1,0 +1,23 @@
+<% JSON.parse(@response.body)["masterlist"].to_a.each do |b| %>
+<h1><%= b[1]["session_name"] %></h1>
+<% end %>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+			<div id="t">
+				<th>Tite</th>
+				<th>Description</th>
+				<th>Last Action</th>
+			</tr>
+		</thead>
+		<% @bills.to_a.each do |bill| %>
+		<tbody>
+				<td><%= link_to bill[1]["title"], {:action=>"show", :controller=>"bills", :id=> "results"} %></td>
+				<td><%= bill[1]["description"] %></td>
+				<td><%= bill[1]["last_action"] %></td>
+			</div>		
+		<% end %>
+		</tbody>
+	</table>
+
+
