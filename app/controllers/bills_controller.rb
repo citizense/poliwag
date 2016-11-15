@@ -9,8 +9,14 @@ class BillsController < ApplicationController
 
   def results
     @response = HTTParty.get('https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getMasterList&state=' + params[:state])
-    @bill_id = HTTParty.get("https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getBill&id=" + params[:state]) 
     @bills = JSON.parse(@response.body)["masterlist"]
+
+    # @bill_parse = JSON.parse(@bill_api.body)
+    # @bills.each do |bill| 
+    #   bill_id = bill[1]["bill_id"].to_s
+    #   @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getBill&id=' + bill_id).body)
+    #   @bill_call = @bill_api["bill"]
+    # end
 
     if request.xhr?
       
@@ -18,7 +24,6 @@ class BillsController < ApplicationController
   end 
 
   def show
-    # @bill_id = HTTParty.get("https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getBill&id=" + params[:id])
-    @bill = @bills.find_by(id: [@bill_id])
+    @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getBill&id=' + params[:id]).body)
   end 
 end
