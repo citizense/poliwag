@@ -10,7 +10,7 @@ class SitesController < ApplicationController
 
   def show
     # @response = HTTParty.get('https://www.govtrack.us/api/v2/bill?q=' + params[:q]) 
-    @response = HTTParty.get('https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getMasterList&state=' + params[:state]) 
+    @response = HTTParty.get('https://api.legiscan.com/?key=KEY&op=getMasterList&state=' + params[:state]) 
     if request.xhr?
       
     end 

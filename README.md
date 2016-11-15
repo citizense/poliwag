@@ -13,7 +13,9 @@ This project requires frameworks and database dependencies. Please checkout the 
 
 # Contributing
 
-  The author will be using Trello and Slack for project management in daily tasks and responsibilities. Channels and sites can only be viewed by those invited to the project.
+  The author will be using Trello and Slack for project management in daily tasks and responsibilities. Channels and sites can only be viewed by those invited to the project. If you have any quick questions, ask them on Slack, we have a bot piping messages back and forth - read on if you want to join that!
+
+Sign up to [our Slack room](https://citizense.slack.com) and [Trello](https://trello.com/b/D6CcaAVF/themis)! We strongly recommend joining this group if you want to get involved and meet the other contributors. Check out the [Guidelines & Standards](/../../wiki) for more information. 
   
 # Stack
 
@@ -24,10 +26,13 @@ This project requires frameworks and database dependencies. Please checkout the 
 - [SASS](http://sass-lang.com/)
 
 ## Databases
+- [SQLite3](https://sqlite.org/)
 - [MongoDB](https://docs.mongodb.com/)
 
 ## APIs 
 - [GovTrack](https://www.govtrack.us/)
 - [Legiscan](https://legiscan.com/legiscan)
 
+## Schema
 
+![Schema](schema.png)
