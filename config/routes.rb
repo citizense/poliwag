@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'sites/index' => 'sites#search', :as => 'search'
   get 'sites/:q' => 'sites#view', :as => 'view'
 
+  get 'bills/search' => 'bills#search', :as => 'bills/search'
+  get 'bills/:q' => 'bills#results',:as => 'results'
+  get 'bills/:id' => 'bills#show', :as => 'bill'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
