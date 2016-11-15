@@ -32,43 +32,43 @@
 // 		// });
 // 	});
 // });
-$(document).ready(function() {
-	function occurence(string){
-		var array = []
-		var words = string.split(' ')
-		var frequencies = {}
-		for( i=0; i < words.length; i++ ){
-			word = words[i];
-			frequencies[word] = frequencies[word] || 0;
-			frequencies[word]++;
-		}
+// $(document).ready(function() {
+// 	function occurence(string){
+// 		var array = []
+// 		var words = string.split(' ')
+// 		var frequencies = {}
+// 		for( i=0; i < words.length; i++ ){
+// 			word = words[i];
+// 			frequencies[word] = frequencies[word] || 0;
+// 			frequencies[word]++;
+// 		}
 
-		for (var word in frequencies)
-      array.push([word, frequencies[word]])
-			array.sort(
-    	function(a, b) {
-        	return b[1] - a[1]
-    	})
-		return array
-	}
-	// var table = $('.table-hover');
-	// var results = d3.select('.table-hover').text();
-  legiscan = new LegiScan();
+// 		for (var word in frequencies)
+//       array.push([word, frequencies[word]])
+// 			array.sort(
+//     	function(a, b) {
+//         	return b[1] - a[1]
+//     	})
+// 		return array
+// 	}
+// 	// var table = $('.table-hover');
+// 	// var results = d3.select('.table-hover').text();
+//   legiscan = new LegiScan();
 
-  $('form#legiscan-search button').click(function(e) {
-    e.preventDefault();
-		legiscan.makeRequest();
-  });
+//   $('form#legiscan-search button').click(function(e) {
+//     e.preventDefault();
+// 		legiscan.makeRequest();
+//   });
 	
-	// var dataViz = occurence(masterlist);
-	// console.log(dataViz)
-	// var svg = d3.select("svg"),
- //  	width = +svg.attr("width");
+// 	// var dataViz = occurence(masterlist);
+// 	// console.log(dataViz)
+// 	// var svg = d3.select("svg"),
+//  //  	width = +svg.attr("width");
 
-  // var data = dataViz.map(function(d) {
-  //   return {
-  //     date: parseDate(d[0]),
-  //     close: d[1]
-  //   };
-});
+//   // var data = dataViz.map(function(d) {
+//   //   return {
+//   //     date: parseDate(d[0]),
+//   //     close: d[1]
+//   //   };
+// });
 
