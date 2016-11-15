@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'bills/search' => 'bills#search', :as => 'bills/search'
   get 'bills/:q' => 'bills#results',:as => 'results'
-  get 'bills/:id' => 'bills#show', :as => 'bill'
+  get 'bills/bill/:id' => 'bills#show', :as => 'bill'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

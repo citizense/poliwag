@@ -10,14 +10,13 @@
 				<th>Last Action</th>
 			</tr>
 		</thead>
-		<% @bills.to_a.each do |bill| %>
+		<% @bills.values.each do |bill| %>
+		<% next if bill["title"].blank? %>
 		<tbody>
-				<td><%= link_to bill[1]["title"], {:action=>"show", :controller=>"bills", :id=> "results"} %></td>
-				<td><%= bill[1]["description"] %></td>
-				<td><%= bill[1]["last_action"] %></td>
+				<td><%= link_to bill["title"], bill_path(bill["bill_id"]) %></td>
+				<td><%= bill["description"] %></td>
+				<td><%= bill["last_action"] %></td>
 			</div>		
 		<% end %>
 		</tbody>
 	</table>
-
-
