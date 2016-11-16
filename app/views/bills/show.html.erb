@@ -1,19 +1,18 @@
-<%= @bill_api %>
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Bill ID</th>
       <th>History</th>
-      <th>Bill ID</th>
-      <th>Bill ID</th>
-      <th>Bill ID</th>
-      <th>Bill ID</th>
-      <th>Bill ID</th>
     </tr>
   </thead>
   <tbody>
+    <% @bill_api.each do |bill_info| %>
+    <% next if bill_info[1]["bill_id"].blank? %>
     <tr>
-      <td></td>
+      <td><%= bill_info[1]["bill_id"] %></td>
+      <td><%= bill_info[1]["history"] %></td>
+    <% end %>
     </tr>
   </tbody>
 </table>
