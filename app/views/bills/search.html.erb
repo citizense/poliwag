@@ -1,13 +1,153 @@
-<div class="form">
-	<h1>What state do you care about?</h1>
-	<%= form_tag 'results', :query => :states, method: :get do %>
-	    <%= label_tag :states, 'Search by State' %>
-	    <%= text_field_tag :state %>
-	    <%= submit_tag 'Search' %>
-	<% end %>
+<div class="container">
+  <div class="row">
+  <div id="googleMap"></div>   
+    <div class="container">
+      <div id="hc-map">
+        <div class="row">
+          <div id="container" style="height: 100px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+    <div class="form text-center">
+  	 <h1>What state do you care about?</h1>
+  	 <%= form_tag 'results', :id => "state", :query => :states, method: :get do %>
+  	    <%= label_tag :states, 'Search by State' %>
+  	    <%= text_field_tag :state %>
+  	    <%= submit_tag 'Search' %>
+  	 <% end %>
+    </div>
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script type></script>
+
+<script>
+google.load("visualization", "1", {packages:["geochart"]});
+google.setOnLoadCallback(drawRegionsMap);
+
+function drawRegionsMap() {
+  var data = google.visualization.arrayToDataTable([
+    ['States', 'Bills'],
+    ['CA', 5097],
+    ['FL', 22],
+    ['TX', 11356],
+    ['NY', 18494],
+    ['IL', 14173],
+    ['VA', 347],
+    ['PA', 5354],
+    ['CO', 788],
+    ['WA', 4019],
+    ['OH', 2221],
+    ['NC', 2053],
+    ['NJ', 7670],
+    ['GA', 4835],
+    ['MI', 3915],
+    ['MD', 2832],
+    ['AZ', 1361],
+    ['OR', 283],
+    ['MA', 7151],
+    ['MO', 2291],
+    ['IN', 1116],
+    ['TN', 7740],
+    ['OK', 0],
+    ['AL', 0],
+    ['WI', 2111],
+    ['KY', 6452],
+    ['MN', 0],
+    ['SC', 3872],
+    ['LA', 2404],
+    ['CT', 1386],
+    ['UT', 821],
+    ['NV', 1093],
+    ['KS', 1459],
+    ['IA', 3055],
+    ['AR', 296],
+    ['MS', 3216],
+    ['NM', 2365],
+    ['NH', 1013],
+    ['WV', 2237],
+    ['ID', 632],
+    ['RI', 2472],
+    ['NE', 1841],
+    ['HI', 5708],
+    ['AK', 752],
+    ['ME', 0],
+    ['MT', 1187],
+    ['DC', 0000],
+    ['DE', 1009],
+    ['ND', 940],
+    ['VT', 1733],
+    ['SD', 493],
+    ['WY', 200]
+  ]);
+
+
+  function billCount(states) {
+  }
+
+  var options = {
+    colorAxis: {
+      colors:['ffffff','e8f1f7','f1f6fa','e3eef5','d5e6f1','c8ddec','bad5e8','accde3','9fc4de','91bcda','83b4d5','76acd1','5f9fc9','4891c2','3183ba','1b76b3','17689d','145987','114a71','0d3c5b'],
+      values: [0,50,100,250,500,1000,1500,2000,2500,3000,5000,7500,10000,13000,15000,20000,25000,30000,40000,50000]
+    },
+    backgroundColor: 'transparent',
+    datalessRegionColor: 'silver',
+    defaultColor: 'silver',
+    legend:'none',
+    region: 'US',
+    displayMode: 'region',
+    resolution: 'provinces'
+  };
+
+  function LegiScan() {
+    this.legiscanUrl = 'https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getMasterList&state=';
+    this.query = window.query;
+  }
+
+  LegiScan.prototype.makeRequest = function() {
+  $.ajax({
+      url: this.legiscanUrl + this.query,
+      type: "GET",
+      dataType: 'json',
+    }).done(function(data){
+      window.bills = data;
+      var billsList = data.masterlist
+
+      var len = 0;
+      for (var o in billsList) {
+       len++;
+       console.log(len)
+      }
+
+      // for (var bill in billsList) {
+      //   var bill = billsList[bill]
+      //   console.log(bill)
+      // }
+    });
+  }  
+
+  window.state = ""
+  var chart = new google.visualization.GeoChart(document.getElementById('googleMap'));
+  chart.draw(data, options);
+
+  google.visualization.events.addListener(chart, 'select', function() {
+    var selectedItem = chart.getSelection()[0];
+    window.query = data.getValue(selectedItem.row, 0)   
+    state = window.query = data.getValue(selectedItem.row, 0)
+    $('#state input').val(state).trigger('click');
+  });
+}
+
+</script>
 
 <!--           <form id="legiscan-search">
             <div class="row">

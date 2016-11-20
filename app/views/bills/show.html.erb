@@ -1,18 +1,27 @@
+<% @bill_api.each do |bill_info| %>
+<% next if bill_info[1]["bill_id"].blank? %>
+  <h1><%= bill_info[1]["title"] %></h1>
+    <% bill_info[1]["sponsors"].each do |sponsor| %>
+    <h2>Sponsor: <%= sponsor["role"]%>. <%= sponsor["name"] %></h2>
+  <% end %>
+<% end %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Bill ID</th>
-      <th>History</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bill_api.each do |bill_info| %>
-    <% next if bill_info[1]["bill_id"].blank? %>
-    <tr>
-      <td><%= bill_info[1]["bill_id"] %></td>
-      <td><%= bill_info[1]["history"] %></td>
-    <% end %>
-    </tr>
-  </tbody>
-</table>
+<% @bill_api.each do |bill_info| %>
+<% next if bill_info[1]["bill_id"].blank? %>
+<p><%= bill_info[1]["description"] %></p>
+<% end %>
+
+
+<% @bill_api.each do |bill_info| %>
+<div class="progress-container">
+      <ul class="progress-steps">
+        <% next if bill_info[1]["bill_id"].blank? %>
+          <% bill_info[1]["history"].each do |history| %>
+          <li>
+          <%= Date.parse(history["date"]) %><br>
+          <%= history["action"] %>
+          </li>
+          <% end %>
+        <% end %>
+  </ul>
+</div>
