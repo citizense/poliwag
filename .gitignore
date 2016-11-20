@@ -36,3 +36,6 @@ Thumbs.db
 .tmp
 vendor/bundle
 log/
+
+# Ignore application configuration
+/config/application.yml
