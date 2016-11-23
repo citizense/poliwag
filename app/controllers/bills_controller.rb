@@ -14,12 +14,7 @@ class BillsController < ApplicationController
     @response = HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getMasterList&state=' + params[:state])
     @results = JSON.parse(@response.body)["masterlist"]
     @bills = @results.reject! {|k,v| k["session"]}
-    # @bill_parse = JSON.parse(@bill_api.body)
-    # @bills.each do |bill| 
-    #   bill_id = bill[1]["bill_id"].to_s
-    #   @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getBill&id=' + bill_id).body)
-    #   @bill_call = @bill_api["bill"]
-    # end
+
     @hash = {}
     @bills.values.each do |bill|
       # Create new hash that uses bill's status's as keys
@@ -50,6 +45,22 @@ class BillsController < ApplicationController
 
 
   def show
-    @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + 'op=getBill&id=' + params[:id]).body)
+    @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getBill&id=' + params[:id]).body)
+
+  @bill_api.each do |bill_info| 
+    next if bill_info[1]["bill_id"].blank? 
+      if bill_info[1]["votes"].length > 0
+        bill_info[1]["votes"].each do |rc|
+        @roll_call_id = rc["roll_call_id"].to_s
+        end 
+      end 
+    end
+
+    if @roll_call_id != nil
+      @roll_call = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getRollCall&id=' + @roll_call_id).body)
+    end 
+
+    @yea = []
+    @nay = []
   end 
 end
