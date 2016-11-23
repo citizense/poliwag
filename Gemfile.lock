@@ -93,7 +93,7 @@ GEM
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.14)
-    figaro (1.1.1)
+    figaro (1.0.0)
       thor (~> 0.14)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
@@ -268,7 +268,7 @@ DEPENDENCIES
   compass-rails
   congress
   d3-rails
-  figaro
+  figaro (~> 1.0.0)
   font-awesome-rails
   geocoder
   holder_rails
