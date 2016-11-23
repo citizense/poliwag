@@ -35,38 +35,40 @@
 
 <div class="container">
 <% if @roll_call != nil %>
-<% @roll_call.each do |roll_call| %>
-<div class="results text-center">
-  <h2 class="panel panel-default"><%= roll_call[1]["desc"] %></h2>
-  <% if roll_call[1]["votes"].class == Array %>
-    <% roll_call[1]["votes"].each do |voter| %>
-      <% if voter["vote_text"] == "Yea" %>
-        <% @yea.push(voter["vote_text"]) %>
-      <% elsif voter["vote_text"] == "Nay" %>
-        <% @nay.push(voter["vote_text"]) %>
-      <% end %>
+  <% @roll_call.each do |roll_call| %>
+  <div class="results text-center">
+    <h2 class="panel panel-default"><%= roll_call[1]["desc"] %></h2>
+    <% if roll_call[1]["votes"].class == Array %>
+      <% roll_call[1]["votes"].each do |voter| %>
+        <% if voter["vote_text"] == "Yea" %>
+          <% @yea.push(voter["vote_text"]) %>
+        <% elsif voter["vote_text"] == "Nay" %>
+          <% @nay.push(voter["vote_text"]) %>
+        <% end %>
     <% end %>
   <% end %>
 </div>
   <div class="row">
-    <div class="yea panel panel-default col-md-6"><p>Yea<br> <%= @yea.length %></p></div>
-    <div class="nay panel panel-default col-md-6"><p>Nay<br> <%= @nay.length %></p></div>
   </div>
 </div>
-<% end %>
+  <% end %>
+    <div class="yea panel panel-default col-md-6 text-center"><p>Yea<br> <%= @yea.length %></p></div>
+    <div class="nay panel panel-default col-md-6 text-center"><p>Nay<br> <%= @nay.length %></p></div>
 <% end %>
 
+
+<h2 class="text-center">Bill Cycle</h2>
 
 <% @bill_api.each do |bill_info| %>
-<div class="progress-container">
-      <ul class="progress-steps">
-        <% next if bill_info[1]["bill_id"].blank? %>
-          <% bill_info[1]["history"].each do |history| %>
-          <li>
-          <%= Date.parse(history["date"]) %><br>
-          <%= history["action"] %>
-          </li>
-          <% end %>
-        <% end %>
+<div class="progress-container things-chuck-changed">
+  <ul class="progress-steps">
+    <% next if bill_info[1]["bill_id"].blank? %>
+    <% bill_info[1]["history"].each do |history| %>
+    <li><%= Date.parse(history["date"]) %><br>
+    <%= history["action"] %></li>
+    <% end %>
+<% end %>
+  </ul>
+</div>
   </ul>
 </div>

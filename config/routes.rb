@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-  root 'sites#index', :constraints => { :method => 'GET' }
+  root 'bills#search', :constraints => { :method => 'GET' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  resources 'sites'
-  get 'sites/index' => 'sites#search', :as => 'search'
-  get 'sites/:q' => 'sites#view', :as => 'view'
-
-  get 'bills/search' => 'bills#search', :as => 'bills/search'
-  get 'bills/:q' => 'bills#results',:as => 'results'
+  get '/search' => 'bills#search', :as => 'bills/search'
+  get '/:q' => 'bills#results',:as => 'results'
   get 'bills/bill/:id' => 'bills#show', :as => 'bill'
 
   # Example of regular route:
