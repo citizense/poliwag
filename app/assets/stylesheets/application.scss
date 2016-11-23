@@ -16,6 +16,8 @@
  *= require rails_bootstrap_forms
  */
 
+
+// bills#show Progress
 $brand-color: #f86;
 $body-color: #999;
 
@@ -71,4 +73,20 @@ $body-color: #999;
   .progress-steps li.active + li:after {
     background-color: $brand-color;
   }
- 
+
+//bills#show Results
+.yea, .nay {
+  font-size: 30px; 
+  color: white
+}
+.yea {
+  color: white;
+  background-color: green;
+  padding: 100px
+}
+
+.nay {
+  color: white;
+  background-color: red;
+  padding: 100px;
+}
