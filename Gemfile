@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sqlite3'
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 gem 'rake'
@@ -57,6 +57,7 @@ gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3'
   gem 'byebug'
   gem 'travis'
   gem 'jasmine'
@@ -71,6 +72,5 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
