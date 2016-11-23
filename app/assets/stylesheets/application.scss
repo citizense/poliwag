@@ -18,6 +18,19 @@
 
 
 // bills#show Progress
+.things-chuck-changed {
+  .progress-steps {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      float: none;
+      &:nth-child(4n+1)::after {
+        display: none;
+      }
+    }
+  }
+}
+
 $brand-color: #f86;
 $body-color: #999;
 
@@ -30,8 +43,8 @@ $body-color: #999;
   }
   .progress-steps li {
     list-style-type: none;
-    width: 25%;
     float: left;
+    width: 25%;
     font-size: .7em;
     position: relative;
     text-align: center;
