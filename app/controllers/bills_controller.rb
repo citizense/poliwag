@@ -47,8 +47,8 @@ class BillsController < ApplicationController
   def show
     @bill_api = JSON.parse(HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getBill&id=' + params[:id]).body)
 
-  @bill_api.each do |bill_info| 
-    next if bill_info[1]["bill_id"].blank? 
+    @bill_api.each do |bill_info| 
+      next if bill_info[1]["bill_id"].blank? 
       if bill_info[1]["votes"].length > 0
         bill_info[1]["votes"].each do |rc|
         @roll_call_id = rc["roll_call_id"].to_s
