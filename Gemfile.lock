@@ -154,6 +154,7 @@ GEM
     openstates (0.0.1)
       faraday_middleware
       hashie
+    pg (0.18.4)
     phantomjs (2.1.1.0)
     public_suffix (2.0.4)
     pusher (1.3.0)
@@ -186,6 +187,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.5.1)
       actionpack (= 4.2.5.1)
       activesupport (= 4.2.5.1)
@@ -275,8 +281,10 @@ DEPENDENCIES
   nested_scaffold
   nokogiri
   openstates
+  pg
   pusher
   rails (= 4.2.5.1)
+  rails_12factor
   rake
   responders (~> 2.0)
   sass-rails (~> 5.0)
