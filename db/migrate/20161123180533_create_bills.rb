@@ -16,3 +16,4 @@ class CreateBills < ActiveRecord::Migration
     end
   end
 end
+

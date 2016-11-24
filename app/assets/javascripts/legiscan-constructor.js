@@ -1,7 +1,7 @@
 
 
 function LegiScan() {
-	this.legiscanUrl = 'https://api.legiscan.com/?key=77fe81d295a37906c8022fb7353d6dcb&op=getMasterList&state=';
+	this.legiscanUrl = 'https://api.legiscan.com/?key=getMasterList&state=';
 }
 
 LegiScan.prototype.query = function() {
