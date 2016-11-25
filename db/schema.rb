@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20161123180533) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "state"
+    t.string   "session_id"
+    t.string   "session_name"
     t.string   "bill_id"
     t.string   "number"
     t.string   "change_hash"
