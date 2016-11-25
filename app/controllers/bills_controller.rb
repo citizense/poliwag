@@ -12,12 +12,20 @@ class BillsController < ApplicationController
 
   def results
     @response = HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getMasterList&state=' + params[:state])
-    @results = JSON.parse(@response.body)["masterlist"]
-    @bills = @results.reject! {|k,v| k["session"]}
+    # if Bill.exists?(state: params[:state])
+    #   @bills = Bill.all 
+    # else
+      @results = JSON.parse(@response.body)["masterlist"]
+      @bills = @results.reject! {|k,v| k["session"]}
+      @bills = @results
+    # end 
 
     # @bills.values.each do |bill|
     #   if bill["bill_id"] !=nil && bill["title"] 
     #     @b = Bill.new(
+    #       :session_id => bill["session_id"],
+    #       :session_name => bill["session_name"]
+    #       :state => params[:state],
     #       :bill_id => bill["bill_id"], 
     #       :number => bill["number"], 
     #       :change_hash => bill["change_hash"], 
