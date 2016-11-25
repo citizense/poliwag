@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20161123180533) do
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
+    t.string   "state"
     t.string   "bill_id"
     t.string   "number"
     t.string   "change_hash"
