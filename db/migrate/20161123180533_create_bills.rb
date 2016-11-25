@@ -6,7 +6,7 @@ class CreateBills < ActiveRecord::Migration
       t.string :change_hash
       t.string :url
       t.string :status_date
-      t.string :staus
+      t.string :status
       t.string :last_action_date
       t.string :last_action
       t.string :title
