@@ -18,28 +18,36 @@ class BillsController < ApplicationController
       @results = JSON.parse(@response.body)["masterlist"]
       @bills = @results.reject! {|k,v| k["session"]}
       @bills = @results
-    # end 
 
-    # @bills.values.each do |bill|
-    #   if bill["bill_id"] !=nil && bill["title"] 
-    #     @b = Bill.new(
-    #       :session_id => bill["session_id"],
-    #       :session_name => bill["session_name"]
-    #       :state => params[:state],
-    #       :bill_id => bill["bill_id"], 
-    #       :number => bill["number"], 
-    #       :change_hash => bill["change_hash"], 
-    #       :url => bill["url"], 
-    #       :status_date => bill["status_date"], 
-    #       :status => bill["status"],
-    #       :last_action_date => bill["last_action_date"],
-    #       :last_action => bill["last_action"],
-    #       :title => bill["title"],
-    #       :description => bill["description"])
-    #     @b.save
-    #   end  
-    # end 
+      # @results.each do |bill|
+      #   @b = Bill.new(
+      #     :session_id = bill[1]["session_id"],
+      #     :session_name = bill[1]["session_name"]
+      #     )
+      #   @b.save
+      # end 
+      # @session_id = @bills["session"]["session_id"]
+      # @session_name = @bills["session"]["session_name"]
 
+      # @bills.values.each do |bill|
+      #   if bill["bill_id"] !=nil && bill["title"] 
+      #     @b = Bill.new(
+      #       :state => params[:state],
+      #       :session_id => @session_id,
+      #       :session_name => @session_name,
+      #       :bill_id => bill["bill_id"], 
+      #       :number => bill["number"], 
+      #       :change_hash => bill["change_hash"], 
+      #       :url => bill["url"], 
+      #       :status_date => bill["status_date"], 
+      #       :status => bill["status"],
+      #       :last_action_date => bill["last_action_date"],
+      #       :last_action => bill["last_action"],
+      #       :title => bill["title"],
+      #       :description => bill["description"])
+      #     @b.save
+      #   end  
+      # end 
 
     @hash = {}
     @bills.values.each do |bill|
