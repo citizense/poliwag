@@ -15,7 +15,8 @@
   	 <h1>What state do you care about?</h1>
   	 <%= form_tag 'results', :id => "state", :query => :states, method: :get do %>
   	    <%= label_tag :states, 'Search by State' %>
-  	    <%= text_field_tag :state %>
+        <%= text_field_tag :state %>
+        <%= select_tag :state, options_for_select(STATES) %>
   	    <%= submit_tag 'Search' %>
   	 <% end %>
     </div>
