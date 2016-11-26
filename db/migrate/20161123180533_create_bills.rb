@@ -14,7 +14,7 @@ class CreateBills < ActiveRecord::Migration
       t.string :last_action
       t.string :title
       t.string :description
-
+      
       t.timestamps null: false
     end
   end

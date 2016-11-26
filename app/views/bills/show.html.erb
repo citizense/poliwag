@@ -60,7 +60,7 @@
 <h2 class="text-center">Bill Cycle</h2>
 
 <% @bill_api.each do |bill_info| %>
-<div class="progress-container things-chuck-changed">
+<div class="progress-container cycle">
   <ul class="progress-steps">
     <% next if bill_info[1]["bill_id"].blank? %>
     <% bill_info[1]["history"].each do |history| %>
