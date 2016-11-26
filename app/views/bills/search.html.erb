@@ -15,8 +15,7 @@
   	 <h1>What state do you care about?</h1>
   	 <%= form_tag 'results', :id => "state", :query => :states, method: :get do %>
   	    <%= label_tag :states, 'Search by State' %>
-        <%= text_field_tag :state %>
-        <%= select_tag :state, options_for_select(STATES) %>
+        <%= select_tag :state, options_for_select(STATES), :id => "stateDrop" %>
   	    <%= submit_tag 'Search' %>
   	 <% end %>
     </div>
@@ -142,9 +141,13 @@ function drawRegionsMap() {
 
   google.visualization.events.addListener(chart, 'select', function() {
     var selectedItem = chart.getSelection()[0];
-    window.query = data.getValue(selectedItem.row, 0)   
-    state = window.query = data.getValue(selectedItem.row, 0)
-    $('#state input').val(state).trigger('click');
+    window.query = data.getValue(selectedItem.row, 0);
+    state = window.query = data.getValue(selectedItem.row, 0);
+    var stateDrop = $('#stateDrop').val(state).trigger('click');
+
+    if (stateDrop) {
+      $('#state').trigger('submit');
+    }
   });
 }
 
