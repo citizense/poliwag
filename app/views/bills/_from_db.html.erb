@@ -1,0 +1,22 @@
+<h1><%= @session_id %></h1>
+<h1><%= @session_name %></h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+			<div id="t">
+				<th>Tite</th>
+				<th>Description</th>
+				<th>Last Action</th>
+			</tr>
+		</thead>
+		<% @bills.each do |bill| %>
+		<% next if bill["title"].blank? %>
+		<tbody>
+				<td><%= link_to bill["title"], bill_path(bill["bill_id"]) %></td>
+				<td><%= bill["description"] %></td>
+				<td><%= bill["last_action"] %></td>
+			</div>		
+		<% end %>
+		</tbody>
+	</table>
+<% else %>
