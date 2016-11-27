@@ -63,72 +63,52 @@ class BillsController < ApplicationController
   def search
   end 
 
-  def results
-    @response = HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getMasterList&state=' + params[:state])
-    # if Bill.exists?(state: params[:state])
-    #   @bills = Bill.all 
-    # else
+  def results   
+    if Bill.exists?(state: params[:state])
+      @bills = Bill.all 
+      @bills.find_by(state: params[:state])
+
+      @session_id = ''
+      @session_name = ''
+
+      @bills.each do |bill|
+        @session_id = bill["session_id"]
+        @session_name = bill["session_name"]
+      end 
+    else
+      @response = HTTParty.get('https://api.legiscan.com/?key=' + LEGISCAN_API_KEY + '&op=getMasterList&state=' + params[:state])
       @results = JSON.parse(@response.body)["masterlist"]
       @bills = @results.reject! {|k,v| k["session"]}
       @bills = @results
-
-      # @results.each do |bill|
-      #   @b = Bill.new(
-      #     :session_id = bill[1]["session_id"],
-      #     :session_name = bill[1]["session_name"]
-      #     )
-      #   @b.save
-      # end 
-      # @session_id = @bills["session"]["session_id"]
-      # @session_name = @bills["session"]["session_name"]
-
-      # @bills.values.each do |bill|
-      #   if bill["bill_id"] !=nil && bill["title"] 
-      #     @b = Bill.new(
-      #       :state => params[:state],
-      #       :session_id => @session_id,
-      #       :session_name => @session_name,
-      #       :bill_id => bill["bill_id"], 
-      #       :number => bill["number"], 
-      #       :change_hash => bill["change_hash"], 
-      #       :url => bill["url"], 
-      #       :status_date => bill["status_date"], 
-      #       :status => bill["status"],
-      #       :last_action_date => bill["last_action_date"],
-      #       :last_action => bill["last_action"],
-      #       :title => bill["title"],
-      #       :description => bill["description"])
-      #     @b.save
-      #   end  
-      # end 
-
-    @hash = {}
-    @bills.values.each do |bill|
+  
+      @hash = {}
+  
+      @bills.values.each do |bill|
       # Create new hash that uses bill's status's as keys
       @hash[bill["status"]] =  bill["status"]
-
       # Compare hash keys and create an array in @hash
       if @hash[bill["status"]] == bill["status"]
         @hash[bill["status"]] = []
       end 
     end
-
+  end
+end 
     # Compare hash keys
-    @hash.each do |k, v|    
-      # Compare bills values
-      @bills.values.each do |bill|
-        # Check and see if the hash's key is the same as the value of the bill status
-        if k == bill["status"]
-          @hash[k].push bill["last_action"]
-        end 
-      end
-    end
+  #   @hash.each do |k, v|    
+  #     # Compare bills values
+  #     @bills.values.each do |bill|
+  #       # Check and see if the hash's key is the same as the value of the bill status
+  #       if k == bill["status"]
+  #         @hash[k].push bill["last_action"]
+  #       end 
+  #     end
+  #   end
 
-    @hash.each do |k,v|
-      @hash[k]
-      freq = @hash[k].inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    end
-  end 
+  #   @hash.each do |k,v|
+  #     @hash[k]
+  #     freq = @hash[k].inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+  #   end
+  # end 
 
 
   def show
