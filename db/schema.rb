@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20161123180533) do
     t.string   "change_hash"
     t.string   "url"
     t.string   "status_date"
-    t.string   "status"
+    t.integer  "status"
     t.string   "last_action_date"
     t.string   "last_action"
     t.string   "title"
     t.string   "description"
+    t.integer  "completed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
