@@ -65,8 +65,7 @@ class BillsController < ApplicationController
 
   def results   
     if Bill.exists?(state: params[:state])
-      @bills = Bill.all 
-      @bills.find_by(state: params[:state])
+      @bills = Bill.where(state: params[:state])
 
       @session_id = ''
       @session_name = ''
