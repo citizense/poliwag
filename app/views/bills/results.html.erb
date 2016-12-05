@@ -1,5 +1,9 @@
 <% if Bill.exists?(state: params[:state]) %>
 	<%= render "from_db" %>
+<% elsif @bills.count == 0 %>
+	<%= render "new_session" %>
 <% else %>
 	<%= render "from_api" %>
 <% end %>
+
+<%= link_to "Go Back", root_path  %>
