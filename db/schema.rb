@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123180533) do
+ActiveRecord::Schema.define(version: 20161210211421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,28 @@ ActiveRecord::Schema.define(version: 20161123180533) do
     t.integer  "completed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string   "bill_number"
+    t.string   "bill_type"
+    t.string   "body"
+    t.string   "body_id"
+    t.string   "current_body"
+    t.string   "current_body_id"
+    t.string   "session_title"
+    t.string   "committee"
+    t.string   "progress"
+    t.string   "history"
+    t.string   "subjects"
+    t.string   "votes"
+    t.string   "amendments"
+    t.string   "supplements"
+    t.string   "sponsors"
+    t.string   "calendar"
+    t.string   "lbill_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
