@@ -30,29 +30,29 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Resource oriented architecture 
+# Use gems for displaying information 
 gem 'json'
 gem 'geocoder'
 gem 'congress'
 gem 'openstates'
 gem 'nokogiri'
 gem "d3-rails"
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'holder_rails'
-gem 'nested_scaffold'
 gem "font-awesome-rails"
 # Use SCSS for stylesheets
 gem 'bootstrap_form'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'traceroute'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'compass-rails'
+# Storing API Keys for development and production
 gem 'pusher'
 gem 'figaro', '~> 1.0.0'
+# Extension gems for routing
+gem 'traceroute'
+gem 'nested_scaffold'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
