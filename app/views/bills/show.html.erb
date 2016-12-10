@@ -10,6 +10,7 @@
       <th>Name</th>
       <th>Party</th>
       <th>District</th>
+      <th>Subjects</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,9 @@
       <td><%= sponsor["name"]%></td>
       <td><%= sponsor["party"]%></td>
       <td><%= sponsor["district"]%></td>
+    <% bill_info[1]["subjects"].each do |subject| %>
+      <td><%= subject["subject_name"] %></td>
+    <% end %>
     </tr>
   <% end %>
 <% end %>
