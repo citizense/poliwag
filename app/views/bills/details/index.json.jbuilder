@@ -1,0 +1,1 @@
+json.array! @bills_details, partial: 'bills_details/bills_detail', as: :bills_detail
