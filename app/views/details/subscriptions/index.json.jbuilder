@@ -1,0 +1,1 @@
+json.array! @details_subscriptions, partial: 'details_subscriptions/details_subscription', as: :details_subscription

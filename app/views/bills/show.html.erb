@@ -53,7 +53,7 @@
 
 <% @bill_api.each do |bill_info| %>
 <% next if bill_info[1]["bill_id"].blank? %>
-<p><%= bill_info[1]["description"] %></p>
+  <p><%= bill_info[1]["description"] %></p>
 <% end %>
 
 <div class="container">
@@ -91,7 +91,5 @@
     <%= history["action"] %></li>
     <% end %>
 <% end %>
-  </ul>
-</div>
   </ul>
 </div>
