@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bills, :except => [:new, :create, :edit, :update, :show, :destroy] do
+    resources :details
+  end
   root 'bills#search', :constraints => { :method => 'GET' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
