@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
+  resources :details do
+    resources :subscriptions
+  end
+
   resources :bills, :except => [:new, :create, :edit, :update, :show, :destroy] do
-    resources :details
   end
   root 'bills#search', :constraints => { :method => 'GET' }
   # The priority is based upon order of creation: first created -> highest priority.
