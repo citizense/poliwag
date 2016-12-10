@@ -45,8 +45,10 @@ gem "font-awesome-rails"
 gem 'bootstrap_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use ActiveModel has_secure_password
+gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'compass-rails'
+gem 'acts_as_votable', '~> 0.10.0'
 # Storing API Keys for development and production
 gem 'pusher'
 gem 'figaro', '~> 1.0.0'
