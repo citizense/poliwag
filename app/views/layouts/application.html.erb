@@ -3,17 +3,19 @@
 <head>
   <title>Poliwag</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'jquery', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'legiscan-constructor', 'jquery', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  	<%= stylesheet_link_tag 'application', media: 'all' %>
+  	<%= javascript_include_tag 'application', 'jquery' => true %>
+  	<%= javascript_include_tag 'legiscan-constructor', 'jquery' %>
+  	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-	<div class="row">
-		<%= yield %>
+	<%= render partial: "/partials/header", layout: false %>
+	
+	<div class="container">
+		<div class="row">
+			<%= yield %>
+		</div>
 	</div>
-</div>
 
 </body>
 </html>
