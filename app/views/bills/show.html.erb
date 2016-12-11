@@ -10,9 +10,9 @@
       <th>Name</th>
       <th>Party</th>
       <th>District</th>
-      <th>Subjects</th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
 <% @bill_api.each do |bill_info| %>
@@ -23,18 +23,37 @@
       <td><%= sponsor["name"]%></td>
       <td><%= sponsor["party"]%></td>
       <td><%= sponsor["district"]%></td>
-    <% bill_info[1]["subjects"].each do |subject| %>
-      <td><%= subject["subject_name"] %></td>
-    <% end %>
     </tr>
   <% end %>
 <% end %>
   </tbody>
 </table>  
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Subject ID</th>
+      <th>Subject Name</th>
+    </tr>
+  </thead>
+
+  <% @bill_api.each do |bill_info| %>
+  <% next if bill_info[1]["bill_id"].blank? %>
+  <tbody>
+    <tr>
+    <h2>Subjects</h2>
+      <% bill_info[1]["subjects"].each do |subject| %>
+      <td><%= subject["subject_id"]%></td>
+      <td><%= subject["subject_name"]%></td>
+    </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
 <% @bill_api.each do |bill_info| %>
 <% next if bill_info[1]["bill_id"].blank? %>
-<p><%= bill_info[1]["description"] %></p>
+  <p><%= bill_info[1]["description"] %></p>
 <% end %>
 
 <div class="container">
@@ -72,7 +91,5 @@
     <%= history["action"] %></li>
     <% end %>
 <% end %>
-  </ul>
-</div>
   </ul>
 </div>

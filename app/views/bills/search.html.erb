@@ -1,3 +1,5 @@
+<h1 class="text-center">Select a State</h1>
+
 <div class="container">
   <div class="row">
   <div id="googleMap"></div>   
@@ -12,7 +14,6 @@
 </div>
 
     <div class="form text-center">
-  	 <h1>What state do you care about?</h1>
   	 <%= form_tag 'results', :id => "state", :query => :states, method: :get do %>
   	    <%= label_tag :states, 'Search by State' %>
         <%= select_tag :state, options_for_select(STATES), :id => "stateDrop" %>

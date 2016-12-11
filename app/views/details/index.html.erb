@@ -1,0 +1,21 @@
+<h1>Listing details</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @details.each do |detail| %>
+  <tr>
+    <td><%= link_to 'Show', [detail.bills, detail] %></td>
+    <td><%= link_to 'Edit', edit_bills_detail_path(detail.bills, detail) %></td>
+    <td><%= link_to 'Destroy', [detail.bills, detail], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Detail', new_bills_detail_path(params[:bills_id]) %>
