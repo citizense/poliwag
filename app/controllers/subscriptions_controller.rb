@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscriptions
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-
+  respond_to :json
   # GET details/1/subscriptions
   def index
     @subscriptions = @details.subscriptions

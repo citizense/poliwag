@@ -1,7 +1,7 @@
 class DetailsController < ApplicationController
   before_action :set_details
   before_action :set_detail, only: [:show, :edit, :update, :destroy]
-
+  respond_to :json
   # GET bills/1/details
   def index
     @details = @bills.details
